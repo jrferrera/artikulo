@@ -6,6 +6,6 @@ class Config(object):
 	if os.environ.get('DATABASE_URI'):
 		SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URI')
 	else:
-		SQLALCHEMY_DATABASE_URI = 'mysql://root:root@127.0.0.1/artikulo_development'
+		SQLALCHEMY_DATABASE_URI = 'mysql://root:root@127.0.0.1:3306/artikulo_development'
 	
 	SQLALCHEMY_TRACK_MODIFICATIONS = False
