@@ -1,10 +1,15 @@
 from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+
+from artikulo.config import Config
 
 app = Flask(__name__)
+app.config.from_object(Config)
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
 
 from artikulo import routes
 from registration.registration import registration
-from artikulo.config import Config
 
 app.register_blueprint(registration)
-app.config.from_object(Config)
