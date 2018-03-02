@@ -16,6 +16,10 @@ from registration.models import User, Profile
 
 app.register_blueprint(registration)
 
+from login.login import login
+
+app.register_blueprint(login)
+
 @app.shell_context_processor
 def make_shell_context():
 	return {'db': db, 'User': User, 'Profile': Profile}

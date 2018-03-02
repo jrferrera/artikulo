@@ -1,0 +1,22 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+
+<h1>Login</h1>
+<form action="{{ url_for('signin') }}" method="post">
+	{{ login_form.hidden_tag() }}
+	<p>
+		{{ login_form.email.label }}<br/>
+		{{ login_form.email }}
+	</p>
+	<p>
+		{{ login_form.password.label }}<br/>
+		{{ login_form.password }}
+	</p>
+	<p>
+		{{ login_form.remember_me() }} {{ login_form.remember_me.label }}
+	</p>
+	<p>{{ login_form.submit() }}</p>
+</form>
+
+{% endblock %}
