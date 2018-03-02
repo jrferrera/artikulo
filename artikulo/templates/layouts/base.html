@@ -1,0 +1,28 @@
+<html>
+	<head>
+		{% if title %}
+			<title>{{ title }} - Artikulo</title>
+		{% else %}
+			<title>Welcome to Artikulo</title>
+		{% endif %}
+	</head>
+	<body>
+		<div>
+			<a href="{{ url_for('home') }}">Home</a>
+		</div>
+		<div>
+			{% with messages = get_flashed_messages() %}
+				{% if messages %}
+					<ul>
+						{% for message in messages %}
+							<li>{{ message }}</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
+			{% endwith %}
+		</div>
+
+		{% block content %}
+		{% endblock %}
+	</body>
+</html>
