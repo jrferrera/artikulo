@@ -11,5 +11,10 @@ migrate = Migrate(app, db)
 
 from artikulo import routes, models
 from registration.registration import registration
+from artikulo.models import User, Profile
 
 app.register_blueprint(registration)
+
+@app.shell_context_processor
+def make_shell_context():
+	return {'db': db, 'User': User, 'Profile': Profile}
