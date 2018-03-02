@@ -9,9 +9,10 @@ app.config.from_object(Config)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
-from artikulo import routes, models
+from artikulo import routes
 from registration.registration import registration
-from artikulo.models import User, Profile
+from registration import models
+from registration.models import User, Profile
 
 app.register_blueprint(registration)
 
