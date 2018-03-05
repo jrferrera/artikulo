@@ -12,3 +12,4 @@ app.add_url_rule('/register', 'signup', Registration().create, methods = ['POST'
 # Login
 app.add_url_rule('/login', 'login', Session().new, methods = ['GET'])
 app.add_url_rule('/login', 'signin', Session().create, methods = ['POST'])
+app.add_url_rule('/logout', 'logout', Session().destroy, methods = ['GET'])

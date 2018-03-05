@@ -9,10 +9,18 @@
 	<body>
 		<div>
 			<a href="{{ url_for('home') }}">Home</a>
-			<a href="{{ url_for('register') }}">Register</a>
-			<a href="{{ url_for('login') }}">Login</a>
+
+			{% if not current_user.is_authenticated %}
+				<a href="{{ url_for('register') }}">Register</a>
+				<a href="{{ url_for('login') }}">Login</a>
+			{% else %}
+			<a href="{{ url_for('logout') }}">Logout</a>
+			{% endif %}
 		</div>
 		<div>
+			{% if current_user.is_authenticated %}
+				Hi {{ current_user.profile[0].first_name }}!
+			{% endif %}
 			{% with messages = get_flashed_messages() %}
 				{% if messages %}
 					<ul>

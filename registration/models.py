@@ -1,9 +1,11 @@
 from datetime import datetime
 from artikulo import db
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import UserMixin
+
 from artikulo.models import BaseModel
 
-class User(BaseModel, db.Model):
+class User(BaseModel, UserMixin, db.Model):
   __tablename__ = 'users'
 
   email = db.Column(db.String(255), index = True, unique = True, nullable = False)

@@ -9,6 +9,10 @@ app.config.from_object(Config)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
+from flask_login import LoginManager
+login_manager = LoginManager(app)
+from login.models import load_user
+
 from artikulo import routes
 from registration.registration import registration
 from registration import models
@@ -17,7 +21,6 @@ from registration.models import User, Profile
 app.register_blueprint(registration)
 
 from login.login import login
-
 app.register_blueprint(login)
 
 @app.shell_context_processor
