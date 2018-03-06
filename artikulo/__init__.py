@@ -24,6 +24,9 @@ app.register_blueprint(registration)
 from login.login import login
 app.register_blueprint(login)
 
+from profile.profile import profile
+app.register_blueprint(profile)
+
 @app.shell_context_processor
 def make_shell_context():
 	return {'db': db, 'User': User, 'Profile': Profile}

@@ -1,0 +1,13 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<div>
+	<h1>Profile</h1>
+	<div>Last Name: {{ current_user.profile[0].last_name }}</div>
+	<div>First Name: {{ current_user.profile[0].first_name }}</div>
+	<div>Email: {{ current_user.email }}</div>
+
+</div>
+
+{% endblock %}
