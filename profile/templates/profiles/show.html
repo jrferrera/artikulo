@@ -4,6 +4,7 @@
 
 <div>
 	<h1>Profile</h1>
+	<img src="{{ current_user.avatar() }}" />
 	<div>Last Name: {{ current_user.profile[0].last_name }}</div>
 	<div>First Name: {{ current_user.profile[0].first_name }}</div>
 	<div>Email: {{ current_user.email }}</div>
