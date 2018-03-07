@@ -16,7 +16,7 @@ login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 from login.models import load_user
 
-from artikulo import routes
+from artikulo import routes, errors
 from registration.registration import registration
 from registration import models
 from registration.models import User, Profile
