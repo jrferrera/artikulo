@@ -8,5 +8,5 @@ from posts.forms import ArticleForm
 class Home:
 	@login_required
 	def index(self):
-		articles = Article.query.all()
+		articles = Article.query.order_by('updated_at desc').all()
 		return render_template('home/index.html', title = 'Home', articles = articles)
