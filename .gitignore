@@ -1,2 +1,3 @@
 *.pyc
 environment_variables.sh
+logs/*
