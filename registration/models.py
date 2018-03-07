@@ -15,6 +15,8 @@ class User(BaseModel, UserMixin, db.Model):
   password_hash = db.Column(db.String(255), nullable = False)
   profile = db.relationship('Profile', backref = 'user')
   articles = db.relationship('Article', backref = 'author', lazy = 'dynamic')
+  about_me = db.Column(db.String(140))
+  last_login = db.Column(db.DateTime, default = datetime.utcnow)
 
   def __repr__(self):
     return '<User {}>'.format(self.email)

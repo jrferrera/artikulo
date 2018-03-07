@@ -1,4 +1,4 @@
-"""empty message
+"""disabled nullable to article author
 
 Revision ID: 713cd7fc65e2
 Revises: d57e6e1280a7

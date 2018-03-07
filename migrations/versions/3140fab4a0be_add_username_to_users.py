@@ -1,4 +1,4 @@
-"""empty message
+"""add username to users
 
 Revision ID: 3140fab4a0be
 Revises: 713cd7fc65e2
