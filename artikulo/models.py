@@ -10,6 +10,10 @@ class BaseModel(object):
     db.session.add(self)
     db.session.commit()
   
+  def update(self):
+    self.updated_at = datetime.now()
+    db.session.commit()
+  
   def delete(self):
     db.session.delete(self)
     db.session.commit()

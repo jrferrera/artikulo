@@ -38,7 +38,7 @@ app.register_blueprint(post)
 def before_request():
 	if current_user.is_authenticated:
 		current_user.last_login = datetime.utcnow()
-		db.session.commit()
+		current_user.save()
 
 @app.shell_context_processor
 def make_shell_context():
