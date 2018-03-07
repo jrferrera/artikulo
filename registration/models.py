@@ -10,6 +10,7 @@ from posts.models import Article
 class User(BaseModel, UserMixin, db.Model):
   __tablename__ = 'users'
 
+  username = db.Column(db.String(255), index = True, unique = True, nullable = False)
   email = db.Column(db.String(255), index = True, unique = True, nullable = False)
   password_hash = db.Column(db.String(255), nullable = False)
   profile = db.relationship('Profile', backref = 'user')

@@ -13,7 +13,7 @@ class Registration:
 		registration_form = RegistrationForm()
 
 		if registration_form.validate_on_submit():
-			user = User(email = registration_form.email.data)
+			user = User(email = registration_form.email.data, username = registration_form.username.data)
 			user.set_password(registration_form.password.data)
 			profile = Profile(user = user, first_name = registration_form.first_name.data, last_name = registration_form.last_name.data)
 			profile.save()

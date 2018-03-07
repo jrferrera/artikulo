@@ -14,12 +14,19 @@
 			{% endfor %}
 		</p>
 		<p>
-				{{ registration_form.last_name.label }}<br>
-				{{ registration_form.last_name }}
-				{% for error in registration_form.last_name.errors %}
-					<span>[{{ error }}]</span>
-				{% endfor %}
-			</p>
+			{{ registration_form.last_name.label }}<br>
+			{{ registration_form.last_name }}
+			{% for error in registration_form.last_name.errors %}
+				<span>[{{ error }}]</span>
+			{% endfor %}
+		</p>
+		<p>
+			{{ registration_form.username.label }}<br>
+			{{ registration_form.username }}
+			{% for error in registration_form.username.errors %}
+				<span>[{{ error }}]</span>
+			{% endfor %}
+		</p>
 		<p>
 			{{ registration_form.email.label }}<br>
 			{{ registration_form.email }}
