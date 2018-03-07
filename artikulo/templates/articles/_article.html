@@ -1,0 +1,6 @@
+<div>
+	<div><a href="{{ url_for('show_post', id = article.id) }}">{{ article.title }}</a></div
+	<div>{{ article.created_at.strftime('%Y %b %d %H:%M') }}</div>
+	<div>by {{ current_user.profile[0].fullname() }}</div>
+	<div>{{ article.content[:200] + '...' }}</div>
+</div>

@@ -1,0 +1,20 @@
+<div>
+	<form action="{{ url_for('create_post')}}" method="post">
+	{{ article_form.hidden_tag() }}
+	<p>
+		{{ article_form.title.label }}<br>
+		{{ article_form.title }}
+		{% for error in article_form.title.errors %}
+			<span>[{{ error }}]</span>
+		{% endfor %}
+	</p>
+	<p>
+		{{ article_form.content.label }}<br>
+		{{ article_form.content }}
+		{% for error in article_form.content.errors %}
+			<span>[{{ error }}]</span>
+		{% endfor %}
+	</p>
+	<p>{{ article_form.submit() }}</p>
+</form>
+</div>

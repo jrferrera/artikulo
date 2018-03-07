@@ -6,5 +6,6 @@ from login.login import Session
 from registration import routes
 from login import routes
 from profile import routes
+from posts import routes
 
 app.add_url_rule('/', 'home', Home().index)

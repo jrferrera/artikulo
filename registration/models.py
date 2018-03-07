@@ -5,6 +5,7 @@ from flask_login import UserMixin
 from hashlib import md5
 
 from artikulo.models import BaseModel
+from posts.models import Article
 
 class User(BaseModel, UserMixin, db.Model):
   __tablename__ = 'users'
@@ -12,10 +13,11 @@ class User(BaseModel, UserMixin, db.Model):
   email = db.Column(db.String(255), index = True, unique = True, nullable = False)
   password_hash = db.Column(db.String(255), nullable = False)
   profile = db.relationship('Profile', backref = 'user')
+  articles = db.relationship('Article', backref = 'author', lazy = 'dynamic')
 
   def __repr__(self):
     return '<User {}>'.format(self.email)
-  
+    
   def avatar(self, size = 80):
     digest = md5(self.email.lower().encode('utf-8')).hexdigest()
     return 'https://www.gravatar.com/avatar/{}?d=identicon&s={}'.format(digest, size)
@@ -35,3 +37,6 @@ class Profile(BaseModel, db.Model):
   
   def __repr__(self):
     return '<Profile {}>'.format(self.first_name)
+  
+  def fullname(self):
+    return self.first_name + ' ' + self.last_name
