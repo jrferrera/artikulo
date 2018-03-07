@@ -1,6 +1,8 @@
 <div>
 	<div><a href="{{ url_for('show_post', id = article.id) }}">{{ article.title }}</a></div
 	<div>{{ article.created_at.strftime('%Y %b %d %H:%M') }}</div>
-	<div>by {{ article.author.username }}</div>
+	<div>
+		by <a href="{{ url_for('show_profile', username = article.author.username) }}">{{ article.author.username }}</a>
+	</div>
 	<div>{{ article.content[:200] + '...' }}</div>
 </div>
