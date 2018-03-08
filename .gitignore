@@ -1,3 +1,4 @@
 *.pyc
 environment_variables.sh
 logs/*
+settings.json
