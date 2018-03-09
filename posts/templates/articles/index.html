@@ -6,5 +6,11 @@
 	{% include 'articles/_article.html' %}
 	<hr />
 {% endfor %}
+{% if previous_url %}
+	<a href="{{ previous_url }}">Newer posts</a>
+{% endif %}
+{% if next_url %}
+	<a href="{{ next_url }}">Older posts</a>
+{% endif %}
 
 {% endblock %}
