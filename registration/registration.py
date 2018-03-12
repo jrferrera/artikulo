@@ -21,3 +21,18 @@ class Registration:
 			return redirect(url_for('home'))
 
 		return render_template('registrations/new.html', title = 'Register', registration_form = registration_form)
+
+class Password:
+	def reset(self):
+		if current_user.is_authenticated:
+			return redirect(url_for('index'))
+			form = ResetPasswordRequestForm()
+			
+			if form.validate_on_submit():
+				user = User.query.filter_by(email=form.email.data).first()
+				
+				if user:
+					send_password_reset_email(user)
+					flash('Check your email for the instructions to reset your password')
+		return redirect(url_for('login'))
+		return render_template('reset_password_request.html',title='Reset Password', form=form)

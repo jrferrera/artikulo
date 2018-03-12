@@ -5,3 +5,5 @@ pip3 install mysqlclient
 pip3 install flask-sqlalchemy
 pip3 install flask-migrate
 pip3 install flask-login
+pip3 install flask-mail
+pip3 install pyjwt

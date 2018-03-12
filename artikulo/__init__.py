@@ -8,11 +8,13 @@ import logging
 from logging.handlers import SMTPHandler
 from logging.handlers import RotatingFileHandler
 import os
+from flask_mail import Mail
 
 app = Flask(__name__)
 app.config.from_object(Config)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
+mail = Mail(app)
 
 from flask_login import LoginManager, current_user
 from datetime import datetime
@@ -68,6 +70,7 @@ if not app.debug:
   app.logger.addHandler(file_handler)
   app.logger.setLevel(logging.INFO)
   app.logger.info('Artikulo Startup')
+
 
 @app.before_request
 def before_request():
