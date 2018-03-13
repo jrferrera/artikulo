@@ -2,53 +2,67 @@
 
 {% block content %}
 	
-<div>
-	<h1>Sign Up</h1>
-	<form action="{{ url_for('signup') }}" method="post">
-		{{ registration_form.hidden_tag() }}
-		<p>
-			{{ registration_form.first_name.label }}<br>
-			{{ registration_form.first_name }}
-			{% for error in registration_form.first_name.errors %}
-				<span>[{{ error }}]</span>
-			{% endfor %}
-		</p>
-		<p>
-			{{ registration_form.last_name.label }}<br>
-			{{ registration_form.last_name }}
-			{% for error in registration_form.last_name.errors %}
-				<span>[{{ error }}]</span>
-			{% endfor %}
-		</p>
-		<p>
-			{{ registration_form.username.label }}<br>
-			{{ registration_form.username }}
-			{% for error in registration_form.username.errors %}
-				<span>[{{ error }}]</span>
-			{% endfor %}
-		</p>
-		<p>
-			{{ registration_form.email.label }}<br>
-			{{ registration_form.email }}
-			{% for error in registration_form.email.errors %}
-				<span>[{{ error }}]</span>
-			{% endfor %}
-		</p>
-		<p>
-			{{ registration_form.password.label }}<br>
-			{{ registration_form.password(size=32) }}
-			{% for error in registration_form.password.errors %}
-				<span>[{{ error }}]</span>
-			{% endfor %}
-		</p>
-		<p>
-				{{ registration_form.confirm_password.label }}<br>
-				{{ registration_form.confirm_password(size=32) }}
-				{% for error in registration_form.confirm_password.errors %}
-					<span>[{{ error }}]</span>
-				{% endfor %}
-			</p>
-		<p>{{ registration_form.submit() }}</p>
+<div class="ui centered grid">
+	<form class="ui form" action="{{ url_for('signup') }}" method="post">
+		<div class="ui stacked segment">
+			{{ registration_form.hidden_tag() }}
+			<h1>Sign Up</h1>
+			<div class="field">
+				<ul>
+					{% for error in registration_form.first_name.errors %}
+						<li>[First Name] {{ error }}</li>
+					{% endfor %}
+					{% for error in registration_form.last_name.errors %}
+						<li>[Last Name] {{ error }}</li>
+					{% endfor %}
+					{% for error in registration_form.username.errors %}
+						<li>[Username] {{ error }}</li>
+					{% endfor %}
+					{% for error in registration_form.email.errors %}
+						<li>[Email] {{ error }}</li>
+					{% endfor %}
+					{% for error in registration_form.password.errors %}
+						<li>[Password] {{ error }}</li>
+					{% endfor %}
+					{% for error in registration_form.confirm_password.errors %}
+						<li>[Password] {{ error }}</li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="fields">
+				<div class="field">
+					{{ registration_form.first_name.label }}
+					{{ registration_form.first_name(required = "true") }}
+				</div>
+				<div class="field">
+					{{ registration_form.last_name.label }}
+					{{ registration_form.last_name(required = "true") }}
+				</div>
+			</div>
+			<div class="fields">
+				<div class="field">
+					{{ registration_form.username.label }}
+					{{ registration_form.username(required = "true") }}
+				</div>
+				<div class="field">
+					{{ registration_form.email.label }}
+					{{ registration_form.email(type = "email", required = "true") }}
+				</div>
+			</div>
+			<div class="fields">
+				<div class="field">
+					{{ registration_form.password.label }}
+					{{ registration_form.password(required = "true") }}
+				</div>
+				<div class="field">
+					{{ registration_form.confirm_password.label }}
+					{{ registration_form.confirm_password(required = "true") }}
+				</div>
+			</div>
+			<div class="field">
+				{{ registration_form.submit(class = "ui small green button") }}
+			</div>
+		</div>
 	</form>
 </div>
 
