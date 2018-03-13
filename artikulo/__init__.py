@@ -16,6 +16,16 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 mail = Mail(app)
 
+from flask_assets import Environment, Bundle
+
+bundles = {
+  'general_css' : Bundle('styles/layouts.css', output = 'general/layouts.css'),
+  'general_js' : Bundle('scripts/lib/jquery-3.3.1.min.js', 'scripts/layouts.js', output = 'general/layouts.js')
+}
+
+assets = Environment(app)
+assets.register(bundles)
+
 from flask_login import LoginManager, current_user
 from datetime import datetime
 

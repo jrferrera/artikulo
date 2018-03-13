@@ -2,4 +2,5 @@
 environment_variables.sh
 logs/*
 settings.json
-artikulo/static/gen
+artikulo/static/general
+artikulo/static/.webassets-cache
