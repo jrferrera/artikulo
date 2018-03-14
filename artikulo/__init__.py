@@ -81,6 +81,8 @@ if not app.debug:
   app.logger.setLevel(logging.INFO)
   app.logger.info('Artikulo Startup')
 
+from flask_moment import Moment
+moment = Moment(app)
 
 @app.before_request
 def before_request():
