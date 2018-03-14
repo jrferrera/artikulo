@@ -1,16 +1,28 @@
 {% extends 'layouts/base.html' %}
 
 {% block content %}
-	<h1>Reset Password</h1>
-	<form action="{{ url_for('reset_password_request') }}" method="post">
-		{{ reset_password_form.hidden_tag() }}
-		<p>
-			{{ reset_password_form.email.label }}<br />
-			{{ reset_password_form.email(size=64) }}<br />
-			{% for error in reset_password_form.email.errors %}
-				<span>[{{ error }}]</span>
-			{% endfor %}
-		</p>
-		<p>{{ reset_password_form.submit() }}</p>
+
+<div class="ui centered grid">
+	<form id="reset-password-form" class="ui form" action="{{ url_for('reset_password_request') }}" method="post">
+		<div class="ui stacked segment">
+			{{ reset_password_form.hidden_tag() }}
+			<h1>Reset Password</h1>
+			<div class="field">
+				<ul class="errors">
+					{% for error in reset_password_form.email.errors %}
+					<li>[Email] {{ error }}</li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="field">
+				{{ reset_password_form.email.label }}
+				{{ reset_password_form.email(required = "true") }}
+			</div>
+			<div class="field">
+				{{ reset_password_form.submit(class = "ui small green button") }}
+			</div>
+		</div>
 	</form>
+</div>
+
 {% endblock %}
