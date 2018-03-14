@@ -10,3 +10,4 @@ pip3 install pyjwt
 pip3 install flask-assets
 pip3 install cssmin
 pip3 install jsmin
+pip3 install flask-moment
