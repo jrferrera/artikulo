@@ -19,7 +19,7 @@ mail = Mail(app)
 from flask_assets import Environment, Bundle
 
 bundles = {
-  'general_css' : Bundle('styles/layouts.css', output = 'general/layouts.css'),
+  'general_css' : Bundle('styles/layouts.css', 'styles/registrations.css', output = 'general/layouts.css'),
   'general_js' : Bundle('scripts/lib/jquery-3.3.1.min.js', 'scripts/layouts.js', output = 'general/layouts.js')
 }
 

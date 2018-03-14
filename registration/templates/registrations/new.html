@@ -3,12 +3,12 @@
 {% block content %}
 	
 <div class="ui centered grid">
-	<form class="ui form" action="{{ url_for('signup') }}" method="post">
+	<form id="registration-form" class="ui form" action="{{ url_for('signup') }}" method="post">
 		<div class="ui stacked segment">
 			{{ registration_form.hidden_tag() }}
 			<h1>Sign Up</h1>
 			<div class="field">
-				<ul>
+				<ul class="errors">
 					{% for error in registration_form.first_name.errors %}
 						<li>[First Name] {{ error }}</li>
 					{% endfor %}
