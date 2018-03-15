@@ -29,8 +29,14 @@ assets.register(bundles)
 from flask_login import LoginManager, current_user
 from datetime import datetime
 
+from flask_babel import Babel, _
+from flask_babel import lazy_gettext as _l
+babel = Babel(app)
+
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
+login_manager.login_message = _l('Please log in to access this page.')
+
 from login.models import load_user
 
 from artikulo import routes, errors
@@ -84,6 +90,11 @@ if not app.debug:
 from flask_moment import Moment
 moment = Moment(app)
 
+from flask import request
+@babel.localeselector
+def get_locale():
+  return request.accept_languages.best_match(app.config['LANGUAGES'])
+
 @app.before_request
 def before_request():
 	if current_user.is_authenticated:
@@ -93,3 +104,5 @@ def before_request():
 @app.shell_context_processor
 def make_shell_context():
 	return {'db': db, 'User': User, 'Profile': Profile}
+
+from artikulo import cli

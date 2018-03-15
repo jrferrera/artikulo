@@ -1,0 +1,68 @@
+# Spanish translations for PROJECT.
+# Copyright (C) 2018 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2018-03-15 18:09+0800\n"
+"PO-Revision-Date: 2018-03-15 16:26+0800\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.3\n"
+
+#: artikulo/__init__.py:38
+msgid "Please log in to access this page."
+msgstr "Por favor inicie sesión para acceder a esta página."
+
+#: artikulo/templates/articles/_article.html:7
+#, python-format
+msgid "written by %(username)s "
+msgstr "escrito por %(username)s "
+
+#: artikulo/templates/home/index.html:10
+msgid "Newer posts"
+msgstr "las publicaciones más nuevas"
+
+#: artikulo/templates/home/index.html:13
+msgid "Older posts"
+msgstr "Publicaciones anteriores"
+
+#: artikulo/templates/layouts/errors/404.html:4
+msgid "404 Not Found"
+msgstr ""
+
+#: login/forms.py:9
+msgid "Email"
+msgstr "404 No encontrado"
+
+#: login/forms.py:10
+msgid "Password"
+msgstr "Contraseña"
+
+#: login/forms.py:11
+msgid "Remember Me"
+msgstr "Recuérdame"
+
+#: login/forms.py:12
+msgid "Sign In"
+msgstr "Registrarse"
+
+#: login/login.py:31
+msgid "Invalid username or password."
+msgstr "usuario o contraseña invalido"
+
+#: profile/profile.py:24
+msgid "You have successfully updated your profile."
+msgstr "Ha actualizado correctamente tu perfil."
+
+#~ msgid "You have successfully updated your profile."
+#~ msgstr ""
+

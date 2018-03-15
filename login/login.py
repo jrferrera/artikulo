@@ -6,6 +6,8 @@ from registration.models import User
 from artikulo import app
 from artikulo.email import send_email, send_password_reset_email
 
+from flask_babel import _
+
 login = Blueprint('login', __name__, template_folder = 'templates')
 
 class Session:
@@ -26,7 +28,7 @@ class Session:
 			user = User.query.filter_by(email = login_form.email.data).first()
 			
 			if user is None or not user.check_password(login_form.password.data):
-				flash('Invalid username or password.')
+				flash(_('Invalid username or password.'))
 				return redirect(url_for('login'))
 			
 			login_user(user, remember = login_form.remember_me.data)

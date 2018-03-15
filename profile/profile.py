@@ -3,6 +3,8 @@ from flask_login import current_user, login_required
 from registration.models import User
 from profile.forms import EditProfileForm
 
+from flask_babel import _
+
 profile = Blueprint('profile', __name__, template_folder = 'templates')
 
 class Profile:
@@ -19,7 +21,7 @@ class Profile:
 			current_user.username = edit_profile_form.username.data
 			current_user.about_me = edit_profile_form.about_me.data
 			current_user.update()
-			flash('You have successfully updated your profile.')
+			flash(_('You have successfully updated your profile.'))
 			return redirect(url_for('edit_my_profile'))
 		elif request.method == 'GET':
 			edit_profile_form.username.data = current_user.username

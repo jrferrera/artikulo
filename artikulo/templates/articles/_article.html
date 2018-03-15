@@ -1,8 +1,9 @@
+{% set user_link %}
+	<a href="{{ url_for('show_profile', username = article.author.username) }}">{{ article.author.username }}</a>
+{% endset %}
+
 <div>
-	<div><a href="{{ url_for('show_post', id = article.id) }}">{{ article.title }}</a></div
-	<div>{{ moment(article.created_at).fromNow() }}</div>
-	<div>
-		by <a href="{{ url_for('show_profile', username = article.author.username) }}">{{ article.author.username }}</a>
-	</div>
+	<div><a href="{{ url_for('show_post', id = article.id) }}">{{ article.title }}</a></div>
+	<div>{{ _('written by %(username)s ', username = user_link, when = moment(article.created_at).fromNow()) }}</div>
 	<div>{{ article.content[:200] + '...' }}</div>
 </div>

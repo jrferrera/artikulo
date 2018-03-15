@@ -28,21 +28,21 @@
 				{% endif %}
 			</div>
 		</div>
-		<div>
-			{% if current_user.is_authenticated %}
-				Hi {{ current_user.profile[0].first_name }}!
-			{% endif %}
-			{% with messages = get_flashed_messages() %}
-				{% if messages %}
-					<ul>
-						{% for message in messages %}
-							<li>{{ message }}</li>
-						{% endfor %}
-					</ul>
-				{% endif %}
-			{% endwith %}
-		</div>
 		<div id="body-container">
+			<div class="ui centered row">
+				{% if current_user.is_authenticated %}
+					<h1>{{ _('Hi, %(username)s!', username=current_user.username) }}</h1>
+				{% endif %}
+				{% with messages = get_flashed_messages() %}
+					{% if messages %}
+						<div>
+							{% for message in messages %}
+								<div>{{ message }}</div>
+							{% endfor %}
+						</div>
+					{% endif %}
+				{% endwith %}
+			</div>
 			{% block content %}
 			{% endblock %}
 		</div>
