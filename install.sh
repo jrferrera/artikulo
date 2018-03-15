@@ -12,3 +12,4 @@ pip3 install cssmin
 pip3 install jsmin
 pip3 install flask-moment
 pip3 install flask-babel
+pip3 install guess-language_spirit

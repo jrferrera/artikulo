@@ -7,6 +7,7 @@ class Article(BaseModel, db.Model):
 	user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable = False)
 	title = db.Column(db.String(255), index = True, unique = True, nullable = False)
 	content = db.Column(db.Text, nullable = False)
+	language = db.Column(db.String(5))
 
 	def __repr__(self):
 		return '<Article {}>'.format(self.title)

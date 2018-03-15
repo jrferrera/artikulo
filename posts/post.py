@@ -6,6 +6,7 @@ from registration.models import User
 from artikulo import app
 
 from flask_login import login_required, current_user
+from guess_language import guess_language
 
 post = Blueprint('post', __name__, template_folder = 'templates')
 
@@ -33,7 +34,12 @@ class Post:
 		article_form = ArticleForm()
 
 		if article_form.validate_on_submit():
-			article = Article(author = current_user, title = article_form.title.data, content = article_form.content.data)
+			language = guess_language(article_form.content.data)
+			
+			if language == 'UNKNOWN' or len(language) > 5:
+				language = None
+
+			article = Article(author = current_user, title = article_form.title.data, content = article_form.content.data, language = language)
 			article.save()
 			flash('Successfully posted an article.')
 			return redirect(url_for('show_post', id = article.id))
